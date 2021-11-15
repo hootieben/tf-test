@@ -9,6 +9,7 @@ terraform {
       version = "~> 3.0"
     }
   }
+  backend "s3" {}
 }
 
 provider "aws" {
@@ -22,7 +23,7 @@ provider "aws" {
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "my-vpc-sykes-test"
+  name = "my-vpc-sykes-test-backend"
   cidr = "10.0.0.0/16"
 
   azs             = ["us-west-2a", "us-west-2b", "us-west-2c"]
